@@ -24,6 +24,6 @@ public class Index extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("date", new Date());
-        req.getRequestDispatcher(req.getAttribute("PATH_JSP") + "index.jsp").forward(req, resp);
+        req.getRequestDispatcher(getServletContext().getInitParameter("PATH_JSP") + "index.jsp").forward(req, resp);
     }
 }
