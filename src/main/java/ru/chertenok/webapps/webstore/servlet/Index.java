@@ -1,4 +1,5 @@
-package ru.chertenok.webapps.webstore;
+package ru.chertenok.webapps.webstore.servlet;
+
 
 
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.util.Date;
 
 @WebServlet(name = "index", urlPatterns = {"/index"})
-public class IndexServlet extends HttpServlet {
+public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
@@ -23,6 +24,6 @@ public class IndexServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("date", new Date());
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher(req.getAttribute("PATH_JSP") + "index.jsp").forward(req, resp);
     }
 }
