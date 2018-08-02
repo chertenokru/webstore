@@ -1,0 +1,252 @@
+body {
+    background-color: #f8f8f8;
+    margin: 0px 0px;
+}
+
+.header {
+    background-color: #E7FDEE;
+    height: 130px;
+
+}
+
+.menu_main {
+    background-color: #3FEE71;
+    list-style: none;
+    font-size: 20px;
+    padding: 5px 5px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.menu_main li {
+    display: inline-block;
+
+}
+
+.menu_main a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    cursor: pointer;
+    padding: 4px 30px;
+}
+
+.menu_main a:hover {
+    background-color: #067827;
+    color: white;
+    outline: 2px solid;
+    outline-color: chartreuse;
+    border-radius: 10%;
+}
+
+.header_main {
+    text-align: center;
+    padding: 5px 5px;
+    margin: 0px;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.header_main img {
+    width: 100px;
+    padding: 11px;
+    float: left;
+    border-radius: 40%;
+}
+
+.header_catalog {
+    font-size: 18px;
+    color: black;
+    background-color: #eaeaea;
+    font-weight: 400;
+    overflow: hidden;
+
+}
+
+.purchase input {
+    width: 100px;
+    padding: 10px;
+}
+
+.purchase input:hover {
+    color: red;
+}
+
+.purchase input:active {
+    background-color: red;
+    color: white;
+}
+
+.text_centered {
+    text-align: center;
+}
+
+li {
+    list-style-image: url("http://www.worldofsm.ru/.s/img/fr/ic/11/f_norm_new.gif");
+    list-style-position: inside;
+}
+
+.text_detail_item,
+.list_item {
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.text_detail_item:first-letter {
+    font-size: 40px;
+    padding-right: 10px;
+    color: green;
+    font-weight: 700;
+    background-color: #eaeaea;
+    margin: 0px 5px 0px 0px;
+}
+
+.list_item {
+    font-style: italic;
+}
+
+.content {
+    padding: 5px 15px;
+}
+
+.welcom_text {
+    height: 400px;
+    margin-top: 200px;
+
+}
+
+.catalog_item {
+    display: inline-block;
+    padding: 5px;
+
+}
+
+.catalog_item p {
+    padding: 0px 10px 0px 10px;
+
+}
+
+.catalog_item img {
+    width: 180px;
+    opacity: 0.9;
+    margin: 40px 20px;
+}
+
+.detailed_item_image {
+    float: left;
+}
+
+.detailed_item_image img {
+    width: 350px;
+
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.detailed_item_image a {
+    margin-bottom: 10px;
+}
+
+.detailed_item_image a img:hover {
+    outline: 2px;
+    outline-style: dashed;
+    outline-color: aquamarine;
+}
+
+.catalog_item:hover img {
+    width: 220px;
+    opacity: 1;
+    margin: 0px;
+
+}
+
+.catalog_item:hover p {
+    color: green;
+}
+
+.table_item {
+    border: 1px solid;
+    border-collapse: collapse;
+    font-style: normal;
+    width: 80%;
+}
+
+.table_item td {
+    border: 1px solid;
+    padding: 5px;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.adress {
+
+}
+
+.form_contacts {
+    width: 350px;
+
+}
+
+.form_contacts input[type="text"], input[type=email], textarea {
+    width: 350px;
+}
+
+.form_contacts input[type="text"] {
+    text-transform: capitalize;
+
+}
+
+.form_contacts input[type="text"], input[type=email] {
+    height: 20px;
+}
+
+.form_contacts textarea {
+    height: 100px;
+}
+
+.form_contacts input[type="text"]:focus, input[type=email]:focus, textarea:focus {
+    outline: 1px solid blue;
+}
+
+.form_contacts input[type="text"]:focus, input[type=email]:focus, textarea:focus form {
+    color: darkblue;
+}
+
+.form_contacts form {
+    color: cadetblue;
+    font-style: italic;
+}
+
+.map {
+    width: 100%;
+}
+
+.footer {
+    color: darkgrey;
+    height: 50px;
+    background: #E9E9E9;
+    text-align: right;
+}
+
+.footer p {
+    text-align: right;
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+.footer_copyrigth {
+
+}
+
+

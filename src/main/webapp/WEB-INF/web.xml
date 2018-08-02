@@ -3,14 +3,31 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
     <display-name>Web Store App</display-name>
+
     <welcome-file-list>
         <welcome-file>index</welcome-file>
     </welcome-file-list>
+
     <context-param>
         <param-name>PATH_JSP</param-name>
         <param-value>WEB-INF/JSP/</param-value>
     </context-param>
+    <context-param>
+        <param-name>SHABLON</param-name>
+        <param-value>shablon.jsp</param-value>
+    </context-param>
+
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/JSP/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/JSP/error403.jsp</location>
+    </error-page>
 
 
 </web-app>
