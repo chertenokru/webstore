@@ -1,6 +1,8 @@
 package ru.chertenok.webapps.webstore.servlet;
 
 
+import ru.chertenok.webapps.webstore.config.Config;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(name = "contacts", urlPatterns = {"/contacts"})
-public class Contacts extends HttpServlet {
+@WebServlet(urlPatterns = {"/catalog"})
+public class ServletCatalog extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
@@ -22,10 +24,9 @@ public class Contacts extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("title", "Интернет-витрина. Контакты");
-        req.setAttribute("url", "contacts.jsp");
+        req.setAttribute("title", "Интернет-витрина. Каталог");
+        req.setAttribute("url", "catalog.jsp");
 
-        req.getRequestDispatcher(getServletContext().getInitParameter("PATH_JSP")
-                + getServletContext().getInitParameter("SHABLON")).forward(req, resp);
+        req.getRequestDispatcher(Config.getPageShablon()).forward(req, resp);
     }
 }
