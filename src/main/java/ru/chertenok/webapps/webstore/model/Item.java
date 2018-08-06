@@ -3,6 +3,8 @@ package ru.chertenok.webapps.webstore.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import java.util.List;
+
 @Entity
 public class Item {
     @Id
@@ -10,16 +12,105 @@ public class Item {
     Brand brand;
     String description;
     String country;
-    String sex;
-    Catalog catalog;
-    CollectionItem collectionItem;
+    Sex sex;
     String article;
     String compaund;
     String compaundFull;
-    Framework framework;
+    ItemScale itemScale;
+    List<ItemVariant> variants;
 
+    public Item() {
+    }
 
+    public Item(String no, Brand brand, String description, String country, Sex sex, String article, String compaund, String compaundFull, ItemScale itemScale) {
+        this.no = no;
+        this.brand = brand;
+        this.description = description;
+        this.country = country;
+        this.sex = sex;
+        this.article = article;
+        this.compaund = compaund;
+        this.compaundFull = compaundFull;
+        this.itemScale = itemScale;
+    }
 
+    public String getNo() {
+        return no;
+    }
 
+    public void setNo(String no) {
+        this.no = no;
+    }
 
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
+    public String getArticle() {
+        return article;
+    }
+
+    public void setArticle(String article) {
+        this.article = article;
+    }
+
+    public String getCompaund() {
+        return compaund;
+    }
+
+    public void setCompaund(String compaund) {
+        this.compaund = compaund;
+    }
+
+    public String getCompaundFull() {
+        return compaundFull;
+    }
+
+    public void setCompaundFull(String compaundFull) {
+        this.compaundFull = compaundFull;
+    }
+
+    public ItemScale getItemScale() {
+        return itemScale;
+    }
+
+    public void setItemScale(ItemScale itemScale) {
+        this.itemScale = itemScale;
+    }
+
+    public List<ItemVariant> getVariants() {
+        return variants;
+    }
+
+    public void setVariants(List<ItemVariant> variants) {
+        this.variants = variants;
+    }
 }

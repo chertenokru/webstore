@@ -6,6 +6,30 @@ import javax.persistence.Id;
 @Entity
 public class Brand {
     @Id
-    String code;
-    String Description;
+    private String code;
+    private String Description;
+
+    public Brand(String code, String description) {
+        this.code = code;
+        Description = description;
+    }
+
+    public Brand() {
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
 }
