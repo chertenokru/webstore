@@ -4,7 +4,7 @@ import ru.chertenok.webapps.webstore.model.Item;
 
 import java.util.List;
 
-public interface IDAO_Items {
+public interface DaoItems {
     Item getItemByID(String id);
 
     List<Item> getListItem(int from, int count);
