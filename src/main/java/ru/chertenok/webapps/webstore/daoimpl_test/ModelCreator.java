@@ -2,16 +2,20 @@ package ru.chertenok.webapps.webstore.daoimpl_test;
 
 import ru.chertenok.webapps.webstore.model.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class ModelCreator {
-    private static Random rnd = new Random();
-    private static List<Brand> brands = createBrands();
-    private static List<ItemScale> itemScales = createItemScale();
-    private static List<Sex> itemSexes = createItemSex();
-    private static List<Item> items = createItems();
+    private static final Random RND = new Random();
+    private static final List<Brand> BRANDS = createBrands();
+    private static final List<ItemScale> ITEM_SCALE = createItemScale();
+    private static final List<Sex> ITEM_SEX = createItemSex();
+    private static final String ITEM_PREF = "T";
+    private static final String ITEMVARIANT_PREF = "V";
+    private static final int NUM_LENGTH = 5;
+    private static final int ITEMS_COUNT = 9;
+    private static final int ITEMVARIANTS_COUNT = 5;
+    private static final Map<String, Item> ITEMS = createItems();
+    private static Map<String, ItemVariant> CART = new HashMap<>();
 
     private static List<Brand> createBrands() {
         List<Brand> list = new ArrayList<>();
@@ -56,55 +60,55 @@ public class ModelCreator {
         return list;
     }
 
-    private static List<Item> createItems() {
+    private static Map<String, Item> createItems() {
 
-        List<Item> list = new ArrayList<>();
-        Item item = new Item("T00001", brands.get(rnd.nextInt(brands.size())), Name.values()[rnd.nextInt(Name.values().length)].name(),
-                Country.values()[rnd.nextInt(Country.values().length)].name(), itemSexes.get(rnd.nextInt(itemSexes.size())), "4354",
-                "кожа", "чья-то кожа", itemScales.get(rnd.nextInt(itemScales.size())));
-        item.setVariants(createItemVariants(item));
-        list.add(item);
-
-        item = new Item("T00002", brands.get(rnd.nextInt(brands.size())), Name.values()[rnd.nextInt(Name.values().length)].name(),
-                Country.values()[rnd.nextInt(Country.values().length)].name(), itemSexes.get(rnd.nextInt(itemSexes.size())), "54752111",
-                "кожа", "чья-то кожа", itemScales.get(rnd.nextInt(itemScales.size())));
-        item.setVariants(createItemVariants(item));
-        list.add(item);
-        item = new Item("T00003", brands.get(rnd.nextInt(brands.size())), Name.values()[rnd.nextInt(Name.values().length)].name(),
-                Country.values()[rnd.nextInt(Country.values().length)].name(), itemSexes.get(rnd.nextInt(itemSexes.size())), "54752111",
-                "кожа", "чья-то кожа", itemScales.get(rnd.nextInt(itemScales.size())));
-        item.setVariants(createItemVariants(item));
-        list.add(item);
-
+        Map<String, Item> list = new HashMap<>();
+        Item item;
+        for (int i = 1; i <= ITEMS_COUNT; i++) {
+            item = new Item(String.format("%s%0" + NUM_LENGTH + "d", ITEM_PREF, i), BRANDS.get(RND.nextInt(BRANDS.size())), Name.values()[RND.nextInt(Name.values().length)].name(),
+                    Country.values()[RND.nextInt(Country.values().length)].name(), ITEM_SEX.get(RND.nextInt(ITEM_SEX.size())), "" + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10),
+                    Compaund.values()[RND.nextInt(Compaund.values().length)].toString(), "", ITEM_SCALE.get(RND.nextInt(ITEM_SCALE.size())));
+            item.setCompaundFull(item.getCompaund());
+            item.setVariants(createItemVariants(item));
+            list.put(item.getNo(), item);
+        }
 
         return list;
     }
 
-    private static List<ItemVariant> createItemVariants(Item item) {
-        List<ItemVariant> list = new ArrayList<>();
-        list.add(new ItemVariant(item, "V0001", item.getItemScale().getSizeList().get(rnd.nextInt(item.getItemScale().getSizeList().size())), "Чёрный"));
-        list.add(new ItemVariant(item, "V0002", item.getItemScale().getSizeList().get(rnd.nextInt(item.getItemScale().getSizeList().size())), "Белый"));
-        list.add(new ItemVariant(item, "V0003", item.getItemScale().getSizeList().get(rnd.nextInt(item.getItemScale().getSizeList().size())), "Синий"));
+    private static Map<String, ItemVariant> createItemVariants(Item item) {
+        Map<String, ItemVariant> list = new HashMap<>();
+        for (int i = 1; i <= ITEMVARIANTS_COUNT; i++) {
+            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeList().get(RND.nextInt(item.getItemScale().getSizeList().size())), Color.values()[RND.nextInt(Color.values().length)].toString()));
+        }
         return list;
     }
 
     public static List<Brand> getBrands() {
-        return brands;
+        return BRANDS;
     }
 
     public static List<ItemScale> getItemScales() {
-        return itemScales;
+        return ITEM_SCALE;
     }
 
     public static List<Sex> getItemSexes() {
-        return itemSexes;
+        return ITEM_SEX;
     }
 
-    public static List<Item> getItems() {
-        return items;
+    public static Map<String, Item> getItems() {
+        return ITEMS;
     }
 
-    enum Name {Пальто, Рубашка, Джинсы, Сапоги}
+    public static Map<String, ItemVariant> getCART() {
+        return CART;
+    }
+
+    enum Name {Пальто, Рубашка, Джинсы, Сапоги, Платье}
 
     enum Country {Россия, Китай, Индия, Португалия}
+
+    enum Color {Чёрный, Белый, Желтый, Зелённый, Бежевый}
+
+    enum Compaund {Кожа, Полиестр, Шерсть, Хлопок}
 }

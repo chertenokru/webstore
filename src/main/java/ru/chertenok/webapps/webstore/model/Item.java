@@ -2,8 +2,7 @@ package ru.chertenok.webapps.webstore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import java.util.List;
+import java.util.Map;
 
 @Entity
 public class Item {
@@ -17,7 +16,7 @@ public class Item {
     String compaund;
     String compaundFull;
     ItemScale itemScale;
-    List<ItemVariant> variants;
+    Map<String, ItemVariant> variants;
 
     public Item() {
     }
@@ -106,11 +105,11 @@ public class Item {
         this.itemScale = itemScale;
     }
 
-    public List<ItemVariant> getVariants() {
+    public Map<String, ItemVariant> getVariants() {
         return variants;
     }
 
-    public void setVariants(List<ItemVariant> variants) {
+    public void setVariants(Map<String, ItemVariant> variants) {
         this.variants = variants;
     }
 }
