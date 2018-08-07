@@ -1,14 +1,15 @@
 package ru.chertenok.webapps.webstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Embeddable
 public class ItemScale {
     @Id
     private String code;
     private String description;
+    @OneToMany
     private List<Size> sizeList;
 
     public ItemScale(String code, String description, List<Size> sizeList) {

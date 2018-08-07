@@ -1,22 +1,22 @@
 package ru.chertenok.webapps.webstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Map;
 
 @Entity
 public class Item {
     @Id
-    String no;
-    Brand brand;
-    String description;
-    String country;
-    Sex sex;
-    String article;
-    String compaund;
-    String compaundFull;
-    ItemScale itemScale;
-    Map<String, ItemVariant> variants;
+    private String no;
+    private Brand brand;
+    private String description;
+    private String country;
+    private Sex sex;
+    private String article;
+    private String compaund;
+    private String compaundFull;
+    private ItemScale itemScale;
+    @OneToMany
+    private Map<String, ItemVariant> variants;
 
     public Item() {
     }
