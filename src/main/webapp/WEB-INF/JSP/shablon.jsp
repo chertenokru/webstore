@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title><%=request.getAttribute("title") %>
     </title>
-    <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
+    <link href="<%= request.getContextPath() %>/CSS/style.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -17,9 +17,10 @@
 
 
     <ul class="menu_main">
-        <li><a href="index"> Главная </a></li>
-        <li><a href="catalog"> Каталог </a></li>
-        <li><a href="contacts"> Контакты </a></li>
+        <li><a href="<%= request.getContextPath() %>\index"> Главная </a></li>
+        <li><a href="<%= request.getContextPath() %>\catalog"> Каталог </a></li>
+        <li><a href="<%= request.getContextPath() %>\cart"> Корзина </a></li>
+        <li><a href="<%= request.getContextPath() %>\contacts"> Контакты </a></li>
     </ul>
 
     <hr>
