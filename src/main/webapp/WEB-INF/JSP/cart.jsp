@@ -7,6 +7,8 @@
     <table class="list_item table_item text-centered">
         <caption class="header_catalog">Товары в корзине</caption>
         <tr>
+            <td>Артикул</td>
+            <td>Описание</td>
             <td>Код</td>
             <td>Цвет</td>
             <td>Размер</td>
@@ -18,6 +20,11 @@
                 for (ItemVariant variant : cart.values()) {
         %>
         <tr>
+            <td><%=variant.getItem().getArticle()%>
+            </td>
+            <td><%=variant.getItem().getDescription()%>
+            </td>
+
             <td><%=variant.getCode()%>
             </td>
             <td><%=variant.getColor()%>
