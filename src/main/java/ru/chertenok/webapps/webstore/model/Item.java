@@ -1,8 +1,11 @@
 package ru.chertenok.webapps.webstore.model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -19,7 +22,6 @@ public class Item {
     private ItemScale itemScale;
     @OneToMany
     private Map<String, ItemVariant> variants;
-
     public Item() {
     }
 
@@ -109,6 +111,10 @@ public class Item {
 
     public Map<String, ItemVariant> getVariants() {
         return variants;
+    }
+
+    public List<ItemVariant> getListVariants() {
+        return new ArrayList<>(variants.values());
     }
 
     public void setVariants(Map<String, ItemVariant> variants) {

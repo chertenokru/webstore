@@ -18,6 +18,7 @@ public class ModelCreator {
     private static final int ITEMVARIANTS_COUNT = 5;
     private static final Map<String, Item> ITEMS = createItems();
     private List<Item> item = new ArrayList<>(ITEMS.values());
+
     private static Map<String, ItemVariant> CART = new HashMap<>();
 
     public static Map<String, Item> getITEMS() {
@@ -42,7 +43,6 @@ public class ModelCreator {
         return list;
     }
 
-    ;
 
     private static List<ItemScale> createItemScale() {
         List<ItemScale> listScale = new ArrayList<>();
@@ -62,7 +62,6 @@ public class ModelCreator {
         return listScale;
     }
 
-    ;
 
     private static List<Sex> createItemSex() {
         List<Sex> list = new ArrayList<>();
@@ -99,6 +98,10 @@ public class ModelCreator {
         return list;
     }
 
+
+    public static List<ItemVariant> getItemVariants(Item item) {
+        return item.getListVariants();
+    }
     public static List<Brand> getBrands() {
         return BRANDS;
     }

@@ -7,14 +7,11 @@
 <h:head></h:head>
 <h:body>
     <h:form>
-        <p:outputLabel value="ygygy"/>
-
-        <div style="height:500px">
 
 
-            <h3>Custom Content</h3>
-            <p:dataTable id="dataTable" var="item" value="#{modelCreator.item}"
-                         paginator="true" rows="10">
+        <h3>Custom Content</h3>
+        <p:dataTable id="itemTable" var="item" value="#{modelCreator.item}"
+                     paginator="true">
                 <f:facet name="header">
                     Товары
                 </f:facet>
@@ -46,7 +43,19 @@
                     </f:facet>
                     <h:outputText value="#{item.no}"/>
                 </p:column>
-            </p:dataTable>
+            <p:column sortable="true">
+                <f:facet name="header">
+                    <h:outputText value="Вариант"/>
+                </f:facet>
+
+                <p:dataList value="#{item.listVariants}" var="itemVar" type="unordered"
+                            itemType="disc" paginator="true" paginatorAlwaysVisible="false">
+                    <h:outputText value=" #{itemVar.color}, #{itemVar.size.code}" style="display:inline-block"/>
+                </p:dataList>
+
+            </p:column>
+
+        </p:dataTable>
 
             <p:blockUI block="dataTable" trigger="dataTable">
                 LOADING<br/>
@@ -54,7 +63,6 @@
             </p:blockUI>
 
 
-        </div>
     </h:form>
 </h:body>
 </html>
