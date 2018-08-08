@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+<f:view>
+<h:form>
+    <h:outputLabel value="Hello, adminka!"/>
+    <p:growl>
+        <p:autoUpdate />
+    </p:growl>
+
+    <p:panelMenu style="width:300px"  >
+        <p:submenu label="Товары"  >
+            <p:menuitem value="Просмотр"  url="#{mainController.linkTovar}" icon="ui-icon-disk" />
+        </p:submenu>
+        <p:separator />
+        <p:submenu label="Справочники">
+            <p:menuitem value="Пол"   ajax="false" icon="ui-icon-close"/>
+            <p:menuitem value="Бренды"   ajax="false" icon="ui-icon-close"/>
+
+        </p:submenu>
+        <p:separator />
+        <p:menuitem value="Вернуться на сайт" url="/" icon="ui-icon-home" />
+
+    </p:panelMenu>
+</h:form>
+</f:view>
+</h:body>
+</html>
