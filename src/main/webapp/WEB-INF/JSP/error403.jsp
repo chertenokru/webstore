@@ -4,6 +4,6 @@
     <title>ERROR 404 - страница не найдена</title>
 </head>
 <body>
-<a href="index"><img src="IMG/error403.jpg"> </a>
+<a href="index"><img src="I<%= request.getContextPath() %>/MG/error403.jpg"> </a>
 </body>
 </html>

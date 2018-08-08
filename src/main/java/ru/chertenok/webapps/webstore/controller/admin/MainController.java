@@ -7,4 +7,8 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 public class MainController {
 
+    public String getLinkTovar() {
+        return "/efefef";
+    }
+
 }

@@ -3,9 +3,58 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+    <h:form>
+        <p:outputLabel value="ygygy"/>
+
+        <div style="height:500px">
+
+
+            <h3>Custom Content</h3>
+            <p:dataTable id="dataTable" var="item" value="#{modelCreator.item}"
+                         paginator="true" rows="10">
+                <f:facet name="header">
+                    Товары
+                </f:facet>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Article"/>
+                    </f:facet>
+                    <h:outputText value="#{item.article}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name"/>
+                    </f:facet>
+                    <h:outputText value="#{item.description}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Brand"/>
+                    </f:facet>
+                    <h:outputText value="#{item.brand.description}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Item No"/>
+                    </f:facet>
+                    <h:outputText value="#{item.no}"/>
+                </p:column>
+            </p:dataTable>
+
+            <p:blockUI block="dataTable" trigger="dataTable">
+                LOADING<br/>
+                <p:graphicImage name="demo/images/ajaxloadingbar.gif"/>
+            </p:blockUI>
+
+
+        </div>
+    </h:form>
+</h:body>
 </html>

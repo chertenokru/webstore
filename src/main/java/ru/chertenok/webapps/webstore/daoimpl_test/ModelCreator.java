@@ -2,8 +2,10 @@ package ru.chertenok.webapps.webstore.daoimpl_test;
 
 import ru.chertenok.webapps.webstore.model.*;
 
+import javax.faces.bean.ManagedBean;
 import java.util.*;
 
+@ManagedBean
 public class ModelCreator {
     private static final Random RND = new Random();
     private static final List<Brand> BRANDS = createBrands();
@@ -15,7 +17,20 @@ public class ModelCreator {
     private static final int ITEMS_COUNT = 9;
     private static final int ITEMVARIANTS_COUNT = 5;
     private static final Map<String, Item> ITEMS = createItems();
+    private List<Item> item = new ArrayList<>(ITEMS.values());
     private static Map<String, ItemVariant> CART = new HashMap<>();
+
+    public static Map<String, Item> getITEMS() {
+        return ITEMS;
+    }
+
+    public List<ru.chertenok.webapps.webstore.model.Item> getItem() {
+        return item;
+    }
+
+    public void setItem(List<ru.chertenok.webapps.webstore.model.Item> item) {
+        this.item = item;
+    }
 
     private static List<Brand> createBrands() {
         List<Brand> list = new ArrayList<>();
