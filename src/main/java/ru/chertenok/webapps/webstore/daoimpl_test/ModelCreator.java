@@ -2,15 +2,14 @@ package ru.chertenok.webapps.webstore.daoimpl_test;
 
 import ru.chertenok.webapps.webstore.model.*;
 
-import javax.faces.bean.ManagedBean;
 import java.util.*;
 
-@ManagedBean
+
 public class ModelCreator {
     private static final Random RND = new Random();
-    private static final List<Brand> BRANDS = createBrands();
-    private static final List<ItemScale> ITEM_SCALE = createItemScale();
-    private static final List<Sex> ITEM_SEX = createItemSex();
+    private static final Map<String, Brand> BRANDS = createBrands();
+    private static final Map<String, ItemScale> ITEM_SCALE = createItemScale();
+    private static final Map<String, Sex> ITEM_SEX = createItemSex();
     private static final String ITEM_PREF = "T";
     private static final String ITEMVARIANT_PREF = "V";
     private static final int NUM_LENGTH = 5;
@@ -33,44 +32,44 @@ public class ModelCreator {
         this.item = item;
     }
 
-    private static List<Brand> createBrands() {
-        List<Brand> list = new ArrayList<>();
-        list.add(new Brand("ARMANI_JEANS", "ARMANI JEANS"));
-        list.add(new Brand("CALVIN K", "Calvin Klein"));
-        list.add(new Brand("COACH", "Coach"));
-        list.add(new Brand("K_LAGERFELD", "Karl Lagerfeld"));
-        list.add(new Brand("M_KORS", "Michael Kors"));
+    private static Map<String, Brand> createBrands() {
+        Map<String, Brand> list = new HashMap<>();
+        list.put("ARMANI_JEANS", new Brand("ARMANI_JEANS", "ARMANI JEANS"));
+        list.put("CALVIN K", new Brand("CALVIN K", "Calvin Klein"));
+        list.put("COACH", new Brand("COACH", "Coach"));
+        list.put("K_LAGERFELD", new Brand("K_LAGERFELD", "Karl Lagerfeld"));
+        list.put("M_KORS", new Brand("M_KORS", "Michael Kors"));
         return list;
     }
 
 
-    private static List<ItemScale> createItemScale() {
-        List<ItemScale> listScale = new ArrayList<>();
-        List<Size> listSize = new ArrayList<>();
-        listSize.add(new Size("L", ""));
-        listSize.add(new Size("M", ""));
-        listSize.add(new Size("S", ""));
-        listSize.add(new Size("XL", ""));
-        listScale.add(new ItemScale("ЦВЕТ-РОСТ-ОДЕЖДА XX", "", listSize));
-        listSize = new ArrayList<>();
-        listSize.add(new Size("37/38", ""));
-        listSize.add(new Size("39/40", ""));
-        listSize.add(new Size("41/42", ""));
-        listSize.add(new Size("43/44", ""));
-        listScale.add(new ItemScale("ЦВЕТ-РОСТ-РУБАШКИ CI", "", listSize));
+    private static Map<String, ItemScale> createItemScale() {
+        Map<String, ItemScale> listScale = new HashMap<>();
+        Map<String, Size> listSize = new HashMap<>();
+        listSize.put("L", new Size("L", ""));
+        listSize.put("M", new Size("M", ""));
+        listSize.put("S", new Size("S", ""));
+        listSize.put("XL", new Size("XL", ""));
+        listScale.put("ЦВЕТ-РОСТ-ОДЕЖДА XX", new ItemScale("ЦВЕТ-РОСТ-ОДЕЖДА XX", "", listSize));
+        listSize = new HashMap<>();
+        listSize.put("37/38", new Size("37/38", ""));
+        listSize.put("39/40", new Size("39/40", ""));
+        listSize.put("41/42", new Size("41/42", ""));
+        listSize.put("43/44", new Size("43/44", ""));
+        listScale.put("ЦВЕТ-РОСТ-РУБАШКИ CI", new ItemScale("ЦВЕТ-РОСТ-РУБАШКИ CI", "", listSize));
 
         return listScale;
     }
 
 
-    private static List<Sex> createItemSex() {
-        List<Sex> list = new ArrayList<>();
-        list.add(new Sex("UNISEX", "Унисекс", false));
-        list.add(new Sex("ДЕВ", "Девочки", true));
-        list.add(new Sex("ДЕТ.", "Дети", true));
-        list.add(new Sex("ЖЕН.", "Женский", false));
-        list.add(new Sex("МАЛ", "Мальчики", true));
-        list.add(new Sex("МУЖ.", "Мужской", false));
+    private static Map<String, Sex> createItemSex() {
+        Map<String, Sex> list = new HashMap<>();
+        list.put("UNISEX", new Sex("UNISEX", "Унисекс", false));
+        list.put("ДЕВ", new Sex("ДЕВ", "Девочки", true));
+        list.put("ДЕТ.", new Sex("ДЕТ.", "Дети", true));
+        list.put("ЖЕН.", new Sex("ЖЕН.", "Женский", false));
+        list.put("МАЛ", new Sex("МАЛ", "Мальчики", true));
+        list.put("МУЖ.", new Sex("МУЖ.", "Мужской", false));
         return list;
     }
 
@@ -93,24 +92,21 @@ public class ModelCreator {
     private static Map<String, ItemVariant> createItemVariants(Item item) {
         Map<String, ItemVariant> list = new HashMap<>();
         for (int i = 1; i <= ITEMVARIANTS_COUNT; i++) {
-            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeList().get(RND.nextInt(item.getItemScale().getSizeList().size())), Color.values()[RND.nextInt(Color.values().length)].toString()));
+            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeMap().get(RND.nextInt(item.getItemScale().getSizeList().size())), Color.values()[RND.nextInt(Color.values().length)].toString()));
         }
         return list;
     }
 
 
-    public static List<ItemVariant> getItemVariants(Item item) {
-        return item.getListVariants();
-    }
-    public static List<Brand> getBrands() {
+    public static Map<String, Brand> getBrands() {
         return BRANDS;
     }
 
-    public static List<ItemScale> getItemScales() {
+    public static Map<String, ItemScale> getItemScales() {
         return ITEM_SCALE;
     }
 
-    public static List<Sex> getItemSexes() {
+    public static Map<String, Sex> getItemSexes() {
         return ITEM_SEX;
     }
 
