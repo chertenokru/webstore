@@ -2,10 +2,12 @@ package ru.chertenok.webapps.webstore.daoimpl_test;
 
 import ru.chertenok.webapps.webstore.model.*;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 
-public class ModelCreator {
+public final class ModelCreator {
     private static final Random RND = new Random();
     private static final Map<String, Brand> BRANDS = createBrands();
     private static final Map<String, ItemScale> ITEM_SCALE = createItemScale();
@@ -16,7 +18,7 @@ public class ModelCreator {
     private static final int ITEMS_COUNT = 9;
     private static final int ITEMVARIANTS_COUNT = 5;
     private static final Map<String, Item> ITEMS = createItems();
-    private List<Item> item = new ArrayList<>(ITEMS.values());
+
 
     private static Map<String, ItemVariant> CART = new HashMap<>();
 
@@ -24,13 +26,7 @@ public class ModelCreator {
         return ITEMS;
     }
 
-    public List<ru.chertenok.webapps.webstore.model.Item> getItem() {
-        return item;
-    }
 
-    public void setItem(List<ru.chertenok.webapps.webstore.model.Item> item) {
-        this.item = item;
-    }
 
     private static Map<String, Brand> createBrands() {
         Map<String, Brand> list = new HashMap<>();
@@ -78,9 +74,9 @@ public class ModelCreator {
         Map<String, Item> list = new HashMap<>();
         Item item;
         for (int i = 1; i <= ITEMS_COUNT; i++) {
-            item = new Item(String.format("%s%0" + NUM_LENGTH + "d", ITEM_PREF, i), BRANDS.get(RND.nextInt(BRANDS.size())), Name.values()[RND.nextInt(Name.values().length)].name(),
-                    Country.values()[RND.nextInt(Country.values().length)].name(), ITEM_SEX.get(RND.nextInt(ITEM_SEX.size())), "" + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10),
-                    Compaund.values()[RND.nextInt(Compaund.values().length)].toString(), "", ITEM_SCALE.get(RND.nextInt(ITEM_SCALE.size())));
+            item = new Item(String.format("%s%0" + NUM_LENGTH + "d", ITEM_PREF, i), BRANDS.get(BRANDS.keySet().toArray()[RND.nextInt(BRANDS.size())]), Name.values()[RND.nextInt(Name.values().length)].name(),
+                    Country.values()[RND.nextInt(Country.values().length)].name(), ITEM_SEX.get(ITEM_SEX.keySet().toArray()[RND.nextInt(ITEM_SEX.size())]), "" + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10) + RND.nextInt(10),
+                    Compaund.values()[RND.nextInt(Compaund.values().length)].toString(), "", ITEM_SCALE.get(ITEM_SCALE.keySet().toArray()[RND.nextInt(ITEM_SCALE.size())]));
             item.setCompaundFull(item.getCompaund());
             item.setVariants(createItemVariants(item));
             list.put(item.getNo(), item);

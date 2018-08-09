@@ -3,21 +3,22 @@ package ru.chertenok.webapps.webstore.daoimpl_test;
 import ru.chertenok.webapps.webstore.dao.*;
 import ru.chertenok.webapps.webstore.model.*;
 
+import javax.annotation.ManagedBean;
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @ApplicationScoped
 @ManagedBean
-public class ModelDaoTestImpl implements BrandDAO, ItemScaleDAO, ItemsDAO, ItemVariantDAO, SexDAO, SizeDAO {
+public class ModelDaoTestImpl implements BrandDAO, ItemScaleDAO, ItemDAO, ItemVariantDAO, SexDAO, SizeDAO {
+
+
     @Override
-    public Brand getBrandByID(@NotNull String code) {
+    public Brand getBrandByID(String code) {
         return ModelCreator.getBrands().get(code);
     }
 
     @Override
-    public void setBrand(@NotNull Brand brand) {
+    public void setBrand(Brand brand) {
         ModelCreator.getBrands().put(brand.getCode(), brand);
     }
 

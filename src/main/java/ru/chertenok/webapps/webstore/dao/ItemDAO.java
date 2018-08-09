@@ -4,7 +4,7 @@ import ru.chertenok.webapps.webstore.model.Item;
 
 import java.util.Collection;
 
-public interface ItemsDAO {
+public interface ItemDAO {
     Item getItemByID(String code);
 
     void setItemByID(Item code);

@@ -5,7 +5,10 @@ import ru.chertenok.webapps.webstore.model.Item;
 import ru.chertenok.webapps.webstore.model.ItemVariant;
 
 public class Test {
+
+
     public static void main(String[] args) {
+
 
         for (Item i : ModelCreator.getItems().values()) {
             System.out.printf("Товар %s, артикул %s, описание %s бренд %s  шкала %s страна %s  пол %s состав %s полный состав %s \n",
