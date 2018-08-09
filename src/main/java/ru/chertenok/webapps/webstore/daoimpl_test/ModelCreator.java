@@ -88,7 +88,7 @@ public final class ModelCreator {
     private static Map<String, ItemVariant> createItemVariants(Item item) {
         Map<String, ItemVariant> list = new HashMap<>();
         for (int i = 1; i <= ITEMVARIANTS_COUNT; i++) {
-            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeMap().get(RND.nextInt(item.getItemScale().getSizeList().size())), Color.values()[RND.nextInt(Color.values().length)].toString()));
+            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeMap().get(item.getItemScale().getSizeMap().keySet().toArray()[RND.nextInt(item.getItemScale().getSizeList().size())]), Color.values()[RND.nextInt(Color.values().length)].toString()));
         }
         return list;
     }

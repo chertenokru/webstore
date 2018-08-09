@@ -60,7 +60,11 @@
                 </f:facet>
 
                 <p:dataList value="#{item.listVariants}" var="itemVar" type="unordered"
-                            itemType="disc" paginator="true" paginatorAlwaysVisible="false">
+                            itemType="none" paginator="true" paginatorAlwaysVisible="false">
+                    <p:link outcome="/admin">
+                        <i class="fa fa-edit" style="font-size: 0.8em; margin: 5px;"/>
+                        <f:param name="id" value="#{item.no}"/>
+                    </p:link>
                     <h:outputText value=" #{itemVar.color}, #{itemVar.size.code}" style="display:inline-block"/>
                 </p:dataList>
 
