@@ -22,7 +22,8 @@
                 </p:link>
             </p:column>
             <p:column width="30">
-                <p:commandLink update="itemTable" actionListener="#{item.deleteItemByID(item.no)}">
+                <p:commandLink update="itemTable"
+                               actionListener="#{itemViewController.itemDAO.deleteItemByID(item.no)}">
                     <i class="fa fa-trash" style="font-size: 1.5em; margin: 5px;"/>
                 </p:commandLink>
             </p:column>
@@ -59,14 +60,22 @@
                     <h:outputText value="Вариант"/>
                 </f:facet>
 
-                <p:dataList value="#{item.listVariants}" var="itemVar" type="unordered"
+                <p:dataList id="varList" value="#{item.listVariants}" var="itemVar" type="unordered"
                             itemType="none" paginator="true" paginatorAlwaysVisible="false">
+                    <p:commandLink update="varList">
+                        <i class="fa fa-trash" style="font-size: 0.8em; margin: 5px;"/>
+                    </p:commandLink>
                     <p:link outcome="/admin">
                         <i class="fa fa-edit" style="font-size: 0.8em; margin: 5px;"/>
                         <f:param name="id" value="#{item.no}"/>
                     </p:link>
                     <h:outputText value=" #{itemVar.color}, #{itemVar.size.code}" style="display:inline-block"/>
                 </p:dataList>
+                <p:link outcome="/admin">
+                    <i class="fa fa-plus-square-o" style="font-size: 0.8em; margin: 5px;"/>
+                    <f:param name="id" value="new"/>
+                    <h:outputText value="Новый вариант" style="display:inline-block"/>
+                </p:link>
 
             </p:column>
 
