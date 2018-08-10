@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 public class MainController {
 
     public String getLinkTovar() {
-        return "/efefef";
+        return "/admin-item-view";
     }
 
 }
