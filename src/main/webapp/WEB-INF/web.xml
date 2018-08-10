@@ -10,6 +10,7 @@
         <welcome-file>index</welcome-file>
     </welcome-file-list>
 
+
     <context-param>
         <param-name>PATH_JSP</param-name>
         <param-value>/WEB-INF/JSP/</param-value>
@@ -18,7 +19,30 @@
         <param-name>SHABLON</param-name>
         <param-value>shablon.jsp</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development​</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
+    <listener>
+        <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>faces</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>faces</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
     <error-page>
         <error-code>404</error-code>

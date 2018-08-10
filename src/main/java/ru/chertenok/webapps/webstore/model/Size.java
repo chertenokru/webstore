@@ -1,6 +1,10 @@
 package ru.chertenok.webapps.webstore.model;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+
+@Entity
 
 public class Size {
     @Id

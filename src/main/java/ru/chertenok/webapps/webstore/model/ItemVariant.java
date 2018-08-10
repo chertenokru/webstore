@@ -1,14 +1,20 @@
 package ru.chertenok.webapps.webstore.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 
 public class ItemVariant {
     @Id
-    Item item;
+    @OneToOne
+    private Item item;
     @Id
-    String code;
-    Size size;
-    String color;
+    private String code;
+    @OneToOne
+    private Size size;
+    private String color;
 
     public ItemVariant() {
     }
