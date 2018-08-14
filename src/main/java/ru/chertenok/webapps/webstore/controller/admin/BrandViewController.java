@@ -41,13 +41,17 @@ public class BrandViewController {
     }
 
     public void init() {
-        @Nullable final Brand brand = brandDAO.getBrandByID(code);
+        @Nullable Brand brand = null;
+        if (!code.equals(""))
+            brand = brandDAO.getBrandByID(code);
+
+
         if (brand != null) this.brand = brand;
         else {
             code = "";
             this.brand = new Brand();
         }
-        ;
+
     }
 
     public String save() {

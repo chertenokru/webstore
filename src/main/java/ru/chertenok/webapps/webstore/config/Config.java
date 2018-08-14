@@ -1,6 +1,6 @@
 package ru.chertenok.webapps.webstore.config;
 
-import ru.chertenok.webapps.webstore.bd.daoimpl_bd.ModelDAOBDImpl;
+import ru.chertenok.webapps.webstore.bd.daoimpl_bd.BrandDAOimpl;
 
 public class Config {
     private static String PATH_JSP = "";
@@ -22,5 +22,5 @@ public class Config {
         PAGE_SHABLON = pageShablon;
     }
 
-    public static final Class IMPL_DAO_CLASS = ModelDAOBDImpl.class;
+    public static final Class IMPL_DAO_CLASS = BrandDAOimpl.class;
 }

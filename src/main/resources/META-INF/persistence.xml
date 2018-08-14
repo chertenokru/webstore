@@ -4,11 +4,11 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
     <persistence-unit name="MYSQLPersistence" transaction-type="JTA">
-        <jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/MySQLWebStore</jta-data-source>
         <properties>
             <property name="hibernate.connection.useUnicode" value="true"/>
             <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
-            <property name="hibernate.archive.autodatection" value="class"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
