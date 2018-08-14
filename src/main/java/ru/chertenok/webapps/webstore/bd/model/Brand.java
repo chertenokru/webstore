@@ -1,12 +1,15 @@
-package ru.chertenok.webapps.webstore.model;
+package ru.chertenok.webapps.webstore.bd.model;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 @Embeddable
-public class Brand {
+public class Brand implements Serializable {
     @Id
     private String code;
     private String Description;
@@ -23,7 +26,7 @@ public class Brand {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(@NotNull String code) {
         this.code = code;
     }
 
@@ -31,7 +34,7 @@ public class Brand {
         return Description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(@NotNull String description) {
         Description = description;
     }
 }

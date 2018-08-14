@@ -11,4 +11,8 @@ public class MainController {
         return "/admin-item-view";
     }
 
+    public String getLinkBrand() {
+        return "/admin-brand-view";
+    }
+
 }

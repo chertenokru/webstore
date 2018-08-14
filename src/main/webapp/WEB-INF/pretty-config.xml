@@ -12,5 +12,12 @@
         <pattern value="/admin-item-view"/>
         <view-id value="/admin/item-view.xhtml"/>
     </url-mapping>
-
+    <url-mapping>
+        <pattern value="/admin-brand-view"/>
+        <view-id value="/admin/brand-view.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-brand-edit"/>
+        <view-id value="/admin/brand-edit.xhtml"/>
+    </url-mapping>
 </pretty-config>

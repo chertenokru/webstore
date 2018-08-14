@@ -1,14 +1,13 @@
-package ru.chertenok.webapps.webstore.model;
+package ru.chertenok.webapps.webstore.bd.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-
-public class ItemVariant {
+@Embeddable
+public class ItemVariant implements Serializable {
     @Id
-    @OneToOne
+    @ManyToOne
     private Item item;
     @Id
     private String code;

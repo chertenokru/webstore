@@ -1,29 +1,34 @@
-package ru.chertenok.webapps.webstore.model;
+package ru.chertenok.webapps.webstore.bd.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 
 @Entity
-public class Item {
+public class Item implements Serializable {
     @Id
     private String no;
+    @OneToOne
     private Brand brand;
     private String description;
     private String country;
+    @OneToOne
     private Sex sex;
     private String article;
     private String compaund;
     private String compaundFull;
+    @OneToOne
     private ItemScale itemScale;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "item")
     private Map<String, ItemVariant> variants;
+
     public Item() {
     }
 
-    public Item(String no, Brand brand, String description, String country, Sex sex, String article, String compaund, String compaundFull, ItemScale itemScale) {
+    public Item(@NotNull String no, @NotNull Brand brand, @NotNull String description, @NotNull String country, @NotNull Sex sex, @NotNull String article, @NotNull String compaund, @NotNull String compaundFull, @NotNull ItemScale itemScale) {
         this.no = no;
         this.brand = brand;
         this.description = description;
@@ -39,7 +44,7 @@ public class Item {
         return no;
     }
 
-    public void setNo(String no) {
+    public void setNo(@NotNull String no) {
         this.no = no;
     }
 
@@ -47,7 +52,7 @@ public class Item {
         return brand;
     }
 
-    public void setBrand(Brand brand) {
+    public void setBrand(@NotNull Brand brand) {
         this.brand = brand;
     }
 
@@ -55,7 +60,7 @@ public class Item {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(@NotNull String description) {
         this.description = description;
     }
 
@@ -63,7 +68,7 @@ public class Item {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(@NotNull String country) {
         this.country = country;
     }
 
@@ -71,7 +76,7 @@ public class Item {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(@NotNull Sex sex) {
         this.sex = sex;
     }
 
@@ -79,7 +84,7 @@ public class Item {
         return article;
     }
 
-    public void setArticle(String article) {
+    public void setArticle(@NotNull String article) {
         this.article = article;
     }
 
@@ -87,7 +92,7 @@ public class Item {
         return compaund;
     }
 
-    public void setCompaund(String compaund) {
+    public void setCompaund(@NotNull String compaund) {
         this.compaund = compaund;
     }
 
@@ -95,7 +100,7 @@ public class Item {
         return compaundFull;
     }
 
-    public void setCompaundFull(String compaundFull) {
+    public void setCompaundFull(@NotNull String compaundFull) {
         this.compaundFull = compaundFull;
     }
 
@@ -103,7 +108,7 @@ public class Item {
         return itemScale;
     }
 
-    public void setItemScale(ItemScale itemScale) {
+    public void setItemScale(@NotNull ItemScale itemScale) {
         this.itemScale = itemScale;
     }
 
@@ -115,7 +120,7 @@ public class Item {
         return variants.values();
     }
 
-    public void setVariants(Map<String, ItemVariant> variants) {
+    public void setVariants(@NotNull Map<String, ItemVariant> variants) {
         this.variants = variants;
     }
 }

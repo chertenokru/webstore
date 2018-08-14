@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+    <h:form>
+
+        <h3>Brand List</h3>
+        <p:dataTable id="brandTable" var="brand" value="#{brandViewController.brandDAO.brands}"
+                     paginator="true" rows="7">
+
+            <p:column width="30">
+                <p:link outcome="/admin-brand-edit">
+                    <i class="fa fa-edit" style="font-size: 1.5em; margin: 5px;"/>
+                    <f:param name="code" value="#{brand.code}"/>
+                </p:link>
+            </p:column>
+            <p:column width="30">
+                <p:commandLink update="brandTable"
+                               actionListener="#{brandViewController.brandDAO.deleteBrandByID(brand.code)}">
+                    <i class="fa fa-trash" style="font-size: 1.5em; margin: 5px;"/>
+                </p:commandLink>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Код"/>
+                </f:facet>
+                <h:outputText value="#{brand.code}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
+                <h:outputText value="#{brand.description}"/>
+            </p:column>
+
+
+        </p:dataTable>
+
+        <p:link outcome="/admin-brand-edit">
+            <i class="fa fa-edit" style="font-size: 1.5em; margin: 5px;"/>
+            <f:param name="code" value=""/>
+            <h:outputText value="New Brand"/>
+        </p:link>
+
+        <p:blockUI block="brandTable" trigger="brandTable">
+            LOADING<br/>
+            <p:graphicImage name="demo/images/ajaxloadingbar.gif"/>
+        </p:blockUI>
+
+
+    </h:form>
+</h:body>
+</html>

@@ -1,14 +1,11 @@
-package ru.chertenok.webapps.webstore.daoimpl_test;
+package ru.chertenok.webapps.webstore.bd.daoimpl_test;
 
-import ru.chertenok.webapps.webstore.dao.*;
-import ru.chertenok.webapps.webstore.model.*;
+import ru.chertenok.webapps.webstore.bd.dao.*;
+import ru.chertenok.webapps.webstore.bd.model.*;
 
-import javax.annotation.ManagedBean;
-import javax.enterprise.context.ApplicationScoped;
 import java.util.Collection;
 
-@ApplicationScoped
-@ManagedBean
+
 public class ModelDaoTestImpl implements BrandDAO, ItemScaleDAO, ItemDAO, ItemVariantDAO, SexDAO, SizeDAO {
 
 

@@ -1,8 +1,8 @@
 package ru.chertenok.webapps.webstore;
 
-import ru.chertenok.webapps.webstore.daoimpl_test.ModelCreator;
-import ru.chertenok.webapps.webstore.model.Item;
-import ru.chertenok.webapps.webstore.model.ItemVariant;
+import ru.chertenok.webapps.webstore.bd.daoimpl_test.ModelCreator;
+import ru.chertenok.webapps.webstore.bd.model.Item;
+import ru.chertenok.webapps.webstore.bd.model.ItemVariant;
 
 public class Test {
 

@@ -1,5 +1,5 @@
-<%@ page import="ru.chertenok.webapps.webstore.model.Item" %>
-<%@ page import="ru.chertenok.webapps.webstore.model.ItemVariant" %>
+<%@ page import="ru.chertenok.webapps.webstore.bd.model.Item" %>
+<%@ page import="ru.chertenok.webapps.webstore.bd.model.ItemVariant" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="content">
     <p><a href="<%= request.getContextPath() %>/catalog">&lt; Назад в каталог</a>

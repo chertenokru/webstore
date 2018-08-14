@@ -1,12 +1,12 @@
-package ru.chertenok.webapps.webstore.model;
+package ru.chertenok.webapps.webstore.bd.model;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
 
-public class Size {
+public class Size implements Serializable {
     @Id
     private String code;
     private String rusName;

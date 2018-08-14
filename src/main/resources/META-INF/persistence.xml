@@ -3,13 +3,15 @@
              version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-    <persistence-unit name="TestPersistence" transaction-type="JTA">
+    <persistence-unit name="MYSQLPersistence" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
         <properties>
             <property name="hibernate.connection.useUnicode" value="true"/>
             <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
-            <property name="hibernate.archive.autodatection" value="claa"/>
+            <property name="hibernate.archive.autodatection" value="class"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
         </properties>
     </persistence-unit>
 </persistence>
