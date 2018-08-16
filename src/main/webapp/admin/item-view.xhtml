@@ -9,8 +9,8 @@
     <h:form>
 
 
-        <h3>Custom Content</h3>
-        <p:dataTable id="itemTable" var="item" value="#{itemViewController.itemDAO.items}"
+        <h3>Item List</h3>
+        <p:dataTable id="itemTable" var="item" value="#{itemController.itemDAO.items}"
                      paginator="true" rows="7">
 
             <p:column width="30">
@@ -21,7 +21,7 @@
             </p:column>
             <p:column width="30">
                 <p:commandLink update="itemTable"
-                               actionListener="#{itemViewController.itemDAO.deleteItemByID(item.no)}">
+                               actionListener="#{itemController.itemDAO.deleteItemByID(item.no)}">
                     <i class="fa fa-trash" style="font-size: 1.5em; margin: 5px;"/>
                 </p:commandLink>
             </p:column>
@@ -58,8 +58,9 @@
                     <h:outputText value="Вариант"/>
                 </f:facet>
 
-                <p:dataList id="varList" value="#{item.listVariants}" var="itemVar" type="unordered"
-                            rendered="#{itemViewController.itemDAO.items.size()>0}"
+                <p:dataList id="varList" value="#{itemController.getVariantByItem(item)}" var="itemVar"
+                            type="unordered"
+
                             itemType="none" paginator="true" paginatorAlwaysVisible="false">
                     <p:link outcome="/admin">
                         <i class="fa fa-edit" style="font-size: 0.8em; margin: 5px;"/>
@@ -80,11 +81,14 @@
             </p:column>
 
         </p:dataTable>
-
-            <p:blockUI block="dataTable" trigger="dataTable">
-                LOADING<br/>
-                <p:graphicImage name="demo/images/ajaxloadingbar.gif"/>
-            </p:blockUI>
+        <p:button class="fa fa-edit" style="font-size: 1.0em; margin: 5px;"
+                  value="New Item" outcome="#{itemController.itemEditLink}">
+            <f:param name="code" value=""/>
+        </p:button>
+        <p:button class="fa fa-edit" style="font-size: 1.0em; margin: 5px;"
+                  value="Main Page" outcome="#{itemController.mainAdminLink}">
+            <f:param name="code" value=""/>
+        </p:button>
 
 
     </h:form>

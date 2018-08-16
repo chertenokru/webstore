@@ -8,7 +8,11 @@ import javax.faces.bean.SessionScoped;
 public class MainController {
 
     public String getLinkTovar() {
-        return "/admin-item-view";
+        return LinkAdminConst.LINK_ITEM_VIEW;
+    }
+
+    public String getLinkBrand() {
+        return LinkAdminConst.LINK_BRAND_VIEW;
     }
 
 }

@@ -1,9 +1,9 @@
 package ru.chertenok.webapps.webstore.servlet;
 
 
+import ru.chertenok.webapps.webstore.bd.daoimpl_test.ModelCreator;
+import ru.chertenok.webapps.webstore.bd.model.Item;
 import ru.chertenok.webapps.webstore.config.Config;
-import ru.chertenok.webapps.webstore.daoimpl_test.ModelCreator;
-import ru.chertenok.webapps.webstore.model.Item;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

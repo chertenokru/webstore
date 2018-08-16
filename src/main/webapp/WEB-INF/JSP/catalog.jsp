@@ -1,4 +1,4 @@
-<%@ page import="ru.chertenok.webapps.webstore.model.Item" %>
+<%@ page import="ru.chertenok.webapps.webstore.bd.model.Item" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="content">

@@ -1,6 +1,6 @@
-package ru.chertenok.webapps.webstore.daoimpl_test;
+package ru.chertenok.webapps.webstore.bd.daoimpl_test;
 
-import ru.chertenok.webapps.webstore.model.*;
+import ru.chertenok.webapps.webstore.bd.model.*;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,15 +1,16 @@
-package ru.chertenok.webapps.webstore.model;
+package ru.chertenok.webapps.webstore.bd.model;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 
 @Entity
 @Embeddable
-public class ItemScale {
+public class ItemScale implements Serializable {
     @Id
     private String code;
     private String description;
