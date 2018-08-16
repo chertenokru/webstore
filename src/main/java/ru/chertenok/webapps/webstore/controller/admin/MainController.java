@@ -15,4 +15,8 @@ public class MainController {
         return LinkAdminConst.LINK_BRAND_VIEW;
     }
 
+    public String getLinkSex() {
+        return LinkAdminConst.LINK_SEX_VIEW;
+    }
+
 }
