@@ -40,6 +40,22 @@
             <from-outcome>/admin-sex-edit</from-outcome>
             <to-view-id>/admin/sex-edit.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>/admin-scale-view</from-outcome>
+            <to-view-id>/admin/scale-view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/admin-scale-edit</from-outcome>
+            <to-view-id>/admin/scale-edit.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/admin-size-view</from-outcome>
+            <to-view-id>/admin/size-view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/admin-size-edit</from-outcome>
+            <to-view-id>/admin/size-edit.xhtml</to-view-id>
+        </navigation-case>
 
     </navigation-rule>
 

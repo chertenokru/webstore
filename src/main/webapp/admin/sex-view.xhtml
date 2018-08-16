@@ -38,6 +38,12 @@
                 </f:facet>
                 <h:outputText value="#{sex.description}"/>
             </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Children"/>
+                </f:facet>
+                <h:selectBooleanCheckbox disabled="true" value="#{sex.children}"/>
+            </p:column>
 
 
         </p:dataTable>

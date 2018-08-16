@@ -17,7 +17,7 @@ public class SexController {
     @NotNull
     private Sex sex;
     @NotNull
-    private String code;
+    private String code = "";
 
 
     public void init() {

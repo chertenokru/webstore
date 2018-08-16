@@ -1,9 +1,6 @@
 package ru.chertenok.webapps.webstore.bd.model;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
@@ -14,8 +11,9 @@ public class ItemScale implements Serializable {
     @Id
     private String code;
     private String description;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "itemScale")
     private Map<String, Size> sizeList;
+
 
     public ItemScale(String code, String description, Map<String, Size> sizeList) {
         this.code = code;

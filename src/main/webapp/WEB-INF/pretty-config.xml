@@ -28,4 +28,21 @@
         <pattern value="/admin-sex-view"/>
         <view-id value="/admin/sex-view.xhtml"/>
     </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-scale-edit"/>
+        <view-id value="/admin/scale-edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-scale-view"/>
+        <view-id value="/admin/scale-view.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-size-edit"/>
+        <view-id value="/admin/size-edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-size-view"/>
+        <view-id value="/admin/size-view.xhtml"/>
+    </url-mapping>
+
 </pretty-config>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+    <h:form>
+
+
+        <h3>Item List</h3>
+        <p:dataTable id="scaleTable" var="scale" value="#{itemScaleController.scaleDAO.itemScales}"
+                     paginator="true" rows="7">
+
+            <p:column width="30">
+                <p:link outcome="#{itemScaleController.scaleEditLink}">
+                    <i class="fa fa-edit" style="font-size: 1.5em; margin: 5px;"/>
+                    <f:param name="code" value="#{scale.code}"/>
+                </p:link>
+            </p:column>
+            <p:column width="30">
+                <p:commandLink update="scaleTable"
+                               actionListener="#{itemScaleController.scaleDAO.deleteItemScaleByID(scale.code)}">
+                    <i class="fa fa-trash" style="font-size: 1.5em; margin: 5px;"/>
+                </p:commandLink>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Code"/>
+                </f:facet>
+                <h:outputText value="#{scale.code}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Description"/>
+                </f:facet>
+                <h:outputText value="#{scale.description}"/>
+            </p:column>
+
+
+            <p:column sortable="true">
+                <f:facet name="header">
+                    <h:outputText value="Размеры"/>
+                </f:facet>
+
+                <p:dataList id="sizeList" value="#{itemScaleController.scale.sizeList}" var="size"
+                            type="unordered"
+
+                            itemType="none" paginator="true" paginatorAlwaysVisible="false">
+                    <p:link outcome="#{itemScaleController.sizeEditLink}">
+                        <i class="fa fa-edit" style="font-size: 0.8em; margin: 5px;"/>
+                        <f:param name="code" value="#{size.code}"/>
+                    </p:link>
+                    <p:commandLink update="sizeList"
+                                   actionListener="#{itemScaleController.scaleDAO.itemScales.remove(size)}">
+                        <i class="fa fa-trash" style="font-size: 0.8em;  margin: 5px;"/>
+                    </p:commandLink>
+
+                    <h:outputText value=" #{size.code} " style="display:inline-block"/>
+                </p:dataList>
+                <p:link outcome="/admin">
+                    <i class="fa fa-plus-square-o" style="font-size: 0.8em; margin: 5px;"/>
+                    <f:param name="id" value="new"/>
+                    <h:outputText value="Новый вариант" style="display:inline-block"/>
+                </p:link>
+
+            </p:column>
+
+        </p:dataTable>
+        <p:button class="fa fa-edit" style="font-size: 1.0em; margin: 5px;"
+                  value="New Scale" outcome="#{itemScaleController.sizeEditLink}">
+            <f:param name="code" value=""/>
+        </p:button>
+        <p:button class="fa fa-edit" style="font-size: 1.0em; margin: 5px;"
+                  value="Main Page" outcome="#{itemScaleController.mainAdminLink}">
+        </p:button>
+
+
+    </h:form>
+</h:body>
+
+</html>

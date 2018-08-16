@@ -19,4 +19,8 @@ public class MainController {
         return LinkAdminConst.LINK_SEX_VIEW;
     }
 
+    public String getLinkScale() {
+        return LinkAdminConst.LINK_SCALE_VIEW;
+    }
+
 }
