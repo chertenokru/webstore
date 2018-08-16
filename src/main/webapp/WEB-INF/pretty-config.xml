@@ -4,7 +4,7 @@
                       http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
     <url-mapping>
-        <pattern value="/admin"/>
+        <pattern value="/admin-main"/>
         <view-id value="/admin/main.xhtml"/>
     </url-mapping>
 
@@ -19,5 +19,13 @@
     <url-mapping>
         <pattern value="/admin-brand-edit"/>
         <view-id value="/admin/brand-edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-sex-edit"/>
+        <view-id value="/admin/sex-edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/admin-sex-view"/>
+        <view-id value="/admin/sex-view.xhtml"/>
     </url-mapping>
 </pretty-config>

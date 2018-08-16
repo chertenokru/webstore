@@ -1,15 +1,11 @@
 package ru.chertenok.webapps.webstore.bd.daoimpl_test;
 
-import ru.chertenok.webapps.webstore.bd.dao.*;
-import ru.chertenok.webapps.webstore.bd.model.*;
+public class ModelDaoTestImpl
+        //implements BrandDAO, ItemScaleDAO, ItemDAO, ItemVariantDAO, SexDAO, SizeDAO
 
-import java.util.Collection;
+{
 
-
-public class ModelDaoTestImpl implements BrandDAO, ItemScaleDAO, ItemDAO, ItemVariantDAO, SexDAO, SizeDAO {
-
-
-    @Override
+    /*    @Override
     public Brand getBrandByID(String code) {
         return ModelCreator.getBrands().get(code);
     }
@@ -128,4 +124,5 @@ public class ModelDaoTestImpl implements BrandDAO, ItemScaleDAO, ItemDAO, ItemVa
     public Collection<Size> getSizes(String scale) {
         return ModelCreator.getItemScales().get(scale).getSizeMap().values();
     }
+    */
 }

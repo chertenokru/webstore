@@ -9,11 +9,10 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @SessionScoped
 @ManagedBean
-public class ItemViewController {
+public class ItemController {
 
     @Inject
     private ItemDAO itemDAO;
@@ -29,5 +28,17 @@ public class ItemViewController {
         else variants = new ArrayList<>();
         return variants;
 
+    }
+
+    public String getItemViewLink() {
+        return LinkAdminConst.LINK_ITEM_VIEW;
+    }
+
+    public String getItemEditLink() {
+        return LinkAdminConst.LINK_ITEM_EDIT;
+    }
+
+    public String getMainAdminLink() {
+        return LinkAdminConst.LINK_MAIN;
     }
 }

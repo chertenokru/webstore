@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 @ManagedBean
 @SessionScoped
-public class BrandViewController {
+public class BrandController {
 
     @Inject
     private BrandDAO brandDAO;
@@ -24,7 +24,7 @@ public class BrandViewController {
     private Brand brand;
 
 
-    public BrandViewController() {
+    public BrandController() {
     }
 
     public BrandDAO getBrandDAO() {
@@ -56,7 +56,19 @@ public class BrandViewController {
 
     public String save() {
         brandDAO.setBrand(brand);
-        return "/admin-brand-view";
+        return LinkAdminConst.LINK_BRAND_VIEW;
+    }
+
+    public String getBrandEditLink() {
+        return LinkAdminConst.LINK_BRAND_EDIT;
+    }
+
+    public String getBrandViewLink() {
+        return LinkAdminConst.LINK_BRAND_VIEW;
+    }
+
+    public String getMainAdminLink() {
+        return LinkAdminConst.LINK_MAIN;
     }
 
     @NotNull

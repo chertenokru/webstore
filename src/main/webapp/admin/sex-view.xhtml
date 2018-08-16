@@ -8,19 +8,19 @@
 <h:body>
     <h:form>
 
-        <h3>Brand List</h3>
-        <p:dataTable id="brandTable" var="brand" value="#{brandController.brandDAO.brands}"
+        <h3>Gender List</h3>
+        <p:dataTable id="sexTable" var="sex" value="#{sexController.sexDAO.sexs}"
                      paginator="true" rows="7">
 
             <p:column width="30">
-                <p:link outcome="#{brandController.brandEditLink}">
+                <p:link outcome="#{sexController.sexEditLink}">
                     <i class="fa fa-edit" style="font-size: 1.5em; margin: 5px;"/>
-                    <f:param name="code" value="#{brand.code}"/>
+                    <f:param name="code" value="#{sex.code}"/>
                 </p:link>
             </p:column>
             <p:column width="30">
-                <p:commandLink update="brandTable"
-                               actionListener="#{brandController.brandDAO.deleteBrandByID(brand.code)}">
+                <p:commandLink update="sexTable"
+                               actionListener="#{sexController.sexDAO.deleteSexByID(sex.code)}">
                     <i class="fa fa-trash" style="font-size: 1.5em; margin: 5px;"/>
                 </p:commandLink>
             </p:column>
@@ -29,28 +29,29 @@
                 <f:facet name="header">
                     <h:outputText value="Код"/>
                 </f:facet>
-                <h:outputText value="#{brand.code}"/>
+                <h:outputText value="#{sex.code}"/>
             </p:column>
 
             <p:column>
                 <f:facet name="header">
                     <h:outputText value="Name"/>
                 </f:facet>
-                <h:outputText value="#{brand.description}"/>
+                <h:outputText value="#{sex.description}"/>
             </p:column>
 
 
         </p:dataTable>
 
         <p:button class="fa fa-edit" style="font-size: 1.0em; margin: 5px;"
-                  value="New Brand" outcome="#{brandController.brandEditLink}">
+                  value="New Gender" outcome="#{sexController.sexEditLink}">
             <f:param name="code" value=""/>
         </p:button>
         <p:button class="fa fa-edit" style="font-size: 1.0em; margin: 5px;"
-                  value="Main Page" outcome="#{brandController.mainAdminLink}">
+                  value="Main Page" outcome="#{sexController.mainAdminLink}">
         </p:button>
 
 
     </h:form>
 </h:body>
+
 </html>
