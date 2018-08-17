@@ -1,12 +1,9 @@
 package ru.chertenok.webapps.webstore.bd.daoimpl_bd;
 
-import org.jetbrains.annotations.NotNull;
-import ru.chertenok.webapps.webstore.bd.dao.*;
-import ru.chertenok.webapps.webstore.bd.model.*;
+import ru.chertenok.webapps.webstore.bd.dao.SizeDAO;
+import ru.chertenok.webapps.webstore.bd.model.Size;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Collection;
 
 @Stateless
@@ -15,17 +12,18 @@ public class SizeDAOimpl extends AbstractDAOimpl implements SizeDAO {
 
     @Override
     public Size getSizeByID(String itemScaleCode, String code) {
-        return null;
+        return em.createQuery("select siz from Size siz where siz.code= :code and siz.itemScale= :scale", Size.class)
+                .setParameter("code", code).setParameter("scale", itemScaleCode).getSingleResult();
     }
 
     @Override
-    public void setSizeByID(String itemScaleCode, Size size) {
-
+    public void setSizeByID(Size size) {
+        em.persist(size);
     }
 
     @Override
     public void deleteSizeByID(String itemScaleCode, String code) {
-
+        em.remove(getSizeByID(itemScaleCode, code));
     }
 
     @Override

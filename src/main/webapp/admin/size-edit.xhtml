@@ -7,40 +7,42 @@
 <h:head>
 </h:head>
 <f:metadata>
-    <f:viewParam name="code" value="#{sexController.code}"/>
-    <f:viewAction action="#{sexController.init}"/>
+    <f:viewParam name="code" value="#{sizeController.code}"/>
+    <f:viewParam name="scale" value="#{sizeController.scale}"/>
+    <f:viewAction action="#{sizeController.init}"/>
 </f:metadata>
 <h:body>
     <h:form>
-        <p:fieldset legend="EDIT Gender">
+        <p:fieldset legend="EDIT Size">
             <p:spacer height="5"/>
+            <p:outputPanel>
+                <p:outputLabel value="Scale"/>
+            </p:outputPanel>
+            <p:outputPanel styleClass="ui-fluid">
+                <p:inputText value="#{sizeController.size.itemScale}" readonly="true"/>
+            </p:outputPanel>
+            <p:spacer height="20"/>
             <p:outputPanel>
                 <p:outputLabel value="Code"/>
             </p:outputPanel>
             <p:outputPanel styleClass="ui-fluid">
-                <p:inputText value="#{sexController.sex.code}"/>
+                <p:inputText value="#{sizeController.size.code}"/>
             </p:outputPanel>
             <p:spacer height="20"/>
 
             <p:outputPanel>
-                <p:outputLabel value="DESCRIPTION"/>
+                <p:outputLabel value="Rus Name"/>
             </p:outputPanel>
             <p:outputPanel styleClass="ui-fluid">
-                <p:inputText value="#{sexController.sex.description}"/>
+                <p:inputText value="#{sizeController.size.rusName}"/>
             </p:outputPanel>
             <p:spacer height="20"/>
-            <p:outputPanel styleClass="ui-fluid">
-                <h:outputText value="Childen: "/>
-                <p:selectBooleanButton id="value2" value="#{sexController.sex.children}" onLabel="Yes" offLabel="No"
-                                       onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:100px">
-                </p:selectBooleanButton>
-            </p:outputPanel>
         </p:fieldset>
-        <p:spacer height="5"/>
+        <p:spacer height="20"/>
         <p:outputPanel>
-            <p:commandButton value="SAVE" action="#{sexController.save}"/>
+            <p:commandButton value="SAVE" action="#{sizeController.save}"/>
             <p:spacer width="20"/>
-            <p:button value="Gender List" outcome="#{sexController.sexViewLink}">
+            <p:button value="Scale List" outcome="#{sizeController.scaleViewLink}">
             </p:button>
         </p:outputPanel>
 

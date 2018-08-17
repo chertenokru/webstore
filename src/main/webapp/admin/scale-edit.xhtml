@@ -7,18 +7,18 @@
 <h:head>
 </h:head>
 <f:metadata>
-    <f:viewParam name="code" value="#{sexController.code}"/>
-    <f:viewAction action="#{sexController.init}"/>
+    <f:viewParam name="code" value="#{itemScaleController.code}"/>
+    <f:viewAction action="#{itemScaleController.init}"/>
 </f:metadata>
 <h:body>
     <h:form>
-        <p:fieldset legend="EDIT Gender">
+        <p:fieldset legend="EDIT Scale">
             <p:spacer height="5"/>
             <p:outputPanel>
                 <p:outputLabel value="Code"/>
             </p:outputPanel>
             <p:outputPanel styleClass="ui-fluid">
-                <p:inputText value="#{sexController.sex.code}"/>
+                <p:inputText value="#{itemScaleController.scale.code}"/>
             </p:outputPanel>
             <p:spacer height="20"/>
 
@@ -26,21 +26,15 @@
                 <p:outputLabel value="DESCRIPTION"/>
             </p:outputPanel>
             <p:outputPanel styleClass="ui-fluid">
-                <p:inputText value="#{sexController.sex.description}"/>
+                <p:inputText value="#{itemScaleController.scale.description}"/>
             </p:outputPanel>
             <p:spacer height="20"/>
-            <p:outputPanel styleClass="ui-fluid">
-                <h:outputText value="Childen: "/>
-                <p:selectBooleanButton id="value2" value="#{sexController.sex.children}" onLabel="Yes" offLabel="No"
-                                       onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:100px">
-                </p:selectBooleanButton>
-            </p:outputPanel>
         </p:fieldset>
-        <p:spacer height="5"/>
+        <p:spacer height="20"/>
         <p:outputPanel>
-            <p:commandButton value="SAVE" action="#{sexController.save}"/>
+            <p:commandButton value="SAVE" action="#{itemScaleController.save}"/>
             <p:spacer width="20"/>
-            <p:button value="Gender List" outcome="#{sexController.sexViewLink}">
+            <p:button value="Size List" outcome="#{itemScaleController.scaleViewLink}">
             </p:button>
         </p:outputPanel>
 

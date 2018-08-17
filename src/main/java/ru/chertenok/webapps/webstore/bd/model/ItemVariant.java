@@ -1,6 +1,9 @@
 package ru.chertenok.webapps.webstore.bd.model;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
@@ -11,14 +14,13 @@ public class ItemVariant implements Serializable {
     private Item item;
     @Id
     private String code;
-    @OneToOne
-    private Size size;
+    private String size;
     private String color;
 
     public ItemVariant() {
     }
 
-    public ItemVariant(Item item, String code, Size size, String color) {
+    public ItemVariant(Item item, String code, String size, String color) {
         this.item = item;
         this.code = code;
         this.size = size;
@@ -41,11 +43,11 @@ public class ItemVariant implements Serializable {
         this.code = code;
     }
 
-    public Size getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(Size size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
