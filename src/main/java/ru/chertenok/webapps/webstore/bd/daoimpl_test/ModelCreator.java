@@ -42,18 +42,19 @@ public final class ModelCreator {
     private static Map<String, ItemScale> createItemScale() {
         Map<String, ItemScale> listScale = new HashMap<>();
         Map<String, Size> listSize = new HashMap<>();
-        listSize.put("L", new Size("L", ""));
+/*        listSize.put("L", new Size("L", ""));
         listSize.put("M", new Size("M", ""));
         listSize.put("S", new Size("S", ""));
         listSize.put("XL", new Size("XL", ""));
+        */
         listScale.put("ЦВЕТ-РОСТ-ОДЕЖДА XX", new ItemScale("ЦВЕТ-РОСТ-ОДЕЖДА XX", "", listSize));
-        listSize = new HashMap<>();
+  /*      listSize = new HashMap<>();
         listSize.put("37/38", new Size("37/38", ""));
         listSize.put("39/40", new Size("39/40", ""));
         listSize.put("41/42", new Size("41/42", ""));
         listSize.put("43/44", new Size("43/44", ""));
         listScale.put("ЦВЕТ-РОСТ-РУБАШКИ CI", new ItemScale("ЦВЕТ-РОСТ-РУБАШКИ CI", "", listSize));
-
+*/
         return listScale;
     }
 
@@ -88,7 +89,7 @@ public final class ModelCreator {
     private static Map<String, ItemVariant> createItemVariants(Item item) {
         Map<String, ItemVariant> list = new HashMap<>();
         for (int i = 1; i <= ITEMVARIANTS_COUNT; i++) {
-            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeMap().get(item.getItemScale().getSizeMap().keySet().toArray()[RND.nextInt(item.getItemScale().getSizeList().size())]), Color.values()[RND.nextInt(Color.values().length)].toString()));
+            list.put(String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), new ItemVariant(item, String.format("%s%0" + NUM_LENGTH + "d", ITEMVARIANT_PREF, i), item.getItemScale().getSizeMap().get(item.getItemScale().getSizeMap().keySet().toArray()[RND.nextInt(item.getItemScale().getSizeList().size())]).getCode(), Color.values()[RND.nextInt(Color.values().length)].toString()));
         }
         return list;
     }

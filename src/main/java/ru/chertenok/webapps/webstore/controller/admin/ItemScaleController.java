@@ -4,10 +4,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.chertenok.webapps.webstore.bd.dao.ItemScaleDAO;
 import ru.chertenok.webapps.webstore.bd.model.ItemScale;
+import ru.chertenok.webapps.webstore.bd.model.Size;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @ManagedBean
 @SessionScoped
@@ -83,5 +86,13 @@ public class ItemScaleController {
 
     public void setScale(@NotNull ItemScale scale) {
         this.scale = scale;
+    }
+
+    public Collection<Size> getSizetByScale(ItemScale itemScale) {
+        Collection<Size> sizes;
+        if (itemScale != null) sizes = itemScale.getSizeList();
+        else sizes = new ArrayList<>();
+        return sizes;
+
     }
 }

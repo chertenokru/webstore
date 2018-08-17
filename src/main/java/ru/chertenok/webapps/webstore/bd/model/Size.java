@@ -2,8 +2,6 @@ package ru.chertenok.webapps.webstore.bd.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.io.Serializable;
 
 @Entity
@@ -11,15 +9,24 @@ public class Size implements Serializable {
     @Id
     private String code;
     @Id
-    private ItemScale itemScale;
+    private String itemScale;
     private String rusName;
 
-    public Size(String code, String rusName) {
+    public Size(String scale, String code, String rusName) {
+        this.itemScale = scale;
         this.code = code;
         this.rusName = rusName;
     }
 
     public Size() {
+    }
+
+    public String getItemScale() {
+        return itemScale;
+    }
+
+    public void setItemScale(String itemScale) {
+        this.itemScale = itemScale;
     }
 
     public String getCode() {
